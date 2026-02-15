@@ -16,7 +16,7 @@ export default function FitnessChallengeComponent() {
   }, [darkMode]);
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-white dark:bg-gray-900">
       {/* Header - Fixed Top Bar */}
       <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 h-[60px] flex items-center justify-between px-6 sticky top-0 z-20">
         {/* BackstagePass Logo */}
@@ -104,7 +104,7 @@ export default function FitnessChallengeComponent() {
       </header>
 
       {/* Main Container - Sidebar + Content */}
-      <div className="flex flex-1 overflow-auto">
+      <div className="flex flex-1 overflow-auto bg-white dark:bg-gray-900">
         {/* Sidebar */}
         <aside className="w-[258px] border-r border-gray-200 dark:border-gray-700 p-6 hidden md:block relative min-h-full">
           {/* Blurred Background */}
@@ -118,7 +118,7 @@ export default function FitnessChallengeComponent() {
               opacity: 0.4,
             }}
           />
-          <div className="absolute inset-0 bg-white/40" />
+          <div className="absolute inset-0 bg-white/40 dark:bg-gray-900/60" />
 
           {/* Content Layer */}
           <div className="relative z-10">
@@ -155,7 +155,7 @@ export default function FitnessChallengeComponent() {
                   onClick={() => setSelectedDay(day)}
                   className={`flex items-center cursor-pointer ${
                     day === 1
-                      ? "bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm rounded-l-3xl -mr-6 pr-10"
+                      ? "bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm rounded-3xl -mr-6 pr-10"
                       : "cursor-not-allowed"
                   }`}
                   style={
