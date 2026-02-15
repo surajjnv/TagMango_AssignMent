@@ -268,7 +268,6 @@ export default function FitnessChallengeComponent() {
         <aside
           className="w-[258px] border-r border-gray-200 dark:border-gray-700 p-6 hidden md:block relative overflow-y-auto scrollbar-hide"
         >
-        >
           {/* Blurred Background */}
           <div
             className="absolute inset-0 bg-cover bg-center"
@@ -284,8 +283,6 @@ export default function FitnessChallengeComponent() {
 
           {/* Content Layer */}
           <div className="relative z-10">
-            {/* Header */}
-
             {/* Back Button and Day */}
             <div className="mb-6 flex items-center gap-4">
               <button className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
