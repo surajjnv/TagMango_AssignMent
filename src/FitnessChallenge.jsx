@@ -19,57 +19,144 @@ export default function FitnessChallengeComponent() {
   return (
     <div className="flex flex-col h-screen bg-white dark:bg-gray-900">
       {/* Header - Fixed Top Bar */}
-      <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 h-14 sm:h-[60px] flex items-center justify-between px-3 sm:px-6 sticky top-0 z-20">
-        {/* Left: Logo + Menu Button */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-1.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
-          >
-            <svg
-              className="w-5 h-5 text-gray-700 dark:text-gray-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+      <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-20">
+        {/* First Row - Main Navigation */}
+        <div className="flex items-center justify-between px-3 sm:px-6 h-14 sm:h-[60px]">
+          {/* Left: Logo + Menu Button */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-1.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-5 h-5 text-gray-700 dark:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
 
-          {/* BackstagePass Logo */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <svg
-              className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
+            {/* BackstagePass Logo */}
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <svg
+                className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="2"
+                  fill="currentColor"
+                  stroke="none"
+                />
+                <path
+                  strokeLinecap="round"
+                  d="M8.5 8.5C7 10 7 12.5 8.5 14M15.5 8.5c1.5 1.5 1.5 4 0 5.5M6 6c-2.7 2.7-2.7 7 0 9.7M18 6c2.7 2.7 2.7 7 0 9.7"
+                />
+              </svg>
+              <span className="text-sm sm:text-lg text-gray-900 dark:text-white">
+                Backstage<span className="font-bold text-amber-600">Pass</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Right: Icons */}
+          <div className="flex items-center gap-1.5 sm:gap-4">
+            {/* Challenge Badge - Desktop only */}
+            <div className="hidden md:flex bg-blue-600 text-white px-4 py-1.5 rounded-full items-center gap-2 text-sm font-medium">
+              <span>9-Day Fitness Challenge</span>
+              <svg
+                className="w-4 h-4 flex-shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+
+            {/* Streak Counter */}
+            <div className="flex items-center gap-1 sm:gap-2">
+              <span className="text-lg sm:text-2xl">🔥</span>
+              <span className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">
+                30
+              </span>
+            </div>
+
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="p-1.5 sm:p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
             >
-              <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
-              <path
-                strokeLinecap="round"
-                d="M8.5 8.5C7 10 7 12.5 8.5 14M15.5 8.5c1.5 1.5 1.5 4 0 5.5M6 6c-2.7 2.7-2.7 7 0 9.7M18 6c2.7 2.7 2.7 7 0 9.7"
-              />
-            </svg>
-            <span className="text-sm sm:text-lg text-gray-900 dark:text-white">
-              Backstage<span className="font-bold text-amber-600">Pass</span>
-            </span>
+              {darkMode ? (
+                <svg
+                  className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+              )}
+            </button>
+
+            {/* Notifications - Hidden on mobile */}
+            <button className="hidden sm:block p-1.5 sm:p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
+              <svg
+                className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 dark:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                />
+              </svg>
+            </button>
+
+            {/* User Avatar */}
+            <img
+              src="/assets/images/user_icon.jpg"
+              alt="User"
+              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
+            />
           </div>
         </div>
 
-        {/* Right: Icons */}
-        <div className="flex items-center gap-1.5 sm:gap-4">
-          {/* Challenge Badge - Always show full text */}
-          <div className="flex bg-blue-600 text-white px-2.5 py-1 sm:px-4 sm:py-1.5 rounded-full items-center gap-1.5 sm:gap-2 text-[10px] sm:text-sm font-medium whitespace-nowrap">
+        {/* Second Row - Challenge Badge (Mobile only) */}
+        <div className="md:hidden px-3 pb-2">
+          <div className="flex bg-blue-600 text-white px-3 py-1.5 rounded-full items-center justify-center gap-2 text-xs font-medium w-fit mx-auto">
             <span>9-Day Fitness Challenge</span>
             <svg
-              className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0"
+              className="w-3 h-3 flex-shrink-0"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -80,66 +167,6 @@ export default function FitnessChallengeComponent() {
               />
             </svg>
           </div>
-
-          {/* Streak Counter */}
-          <div className="flex items-center gap-1 sm:gap-2">
-            <span className="text-lg sm:text-2xl">🔥</span>
-            <span className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">
-              30
-            </span>
-          </div>
-
-          {/* Dark Mode Toggle */}
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-1.5 sm:p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
-          >
-            {darkMode ? (
-              <svg
-                className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-              </svg>
-            )}
-          </button>
-
-          {/* Notifications - Hidden on mobile */}
-          <button className="hidden sm:block p-1.5 sm:p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
-            <svg
-              className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 dark:text-gray-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-              />
-            </svg>
-          </button>
-
-          {/* User Avatar */}
-          <img
-            src="/assets/images/user_icon.jpg"
-            alt="User"
-            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
-          />
         </div>
       </header>
 
@@ -150,7 +177,7 @@ export default function FitnessChallengeComponent() {
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
-            className="absolute left-0 top-14 bottom-0 w-64 bg-white dark:bg-gray-900 shadow-xl p-4 overflow-y-auto"
+            className="absolute left-0 top-[88px] bottom-0 w-64 bg-white dark:bg-gray-900 shadow-xl p-4 overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Mobile Menu Header */}
@@ -236,9 +263,12 @@ export default function FitnessChallengeComponent() {
       )}
 
       {/* Main Container - Sidebar + Content */}
-      <div className="flex flex-1 overflow-auto bg-white dark:bg-gray-900">
+      <div className="flex flex-1 overflow-hidden bg-white dark:bg-gray-900">
         {/* Sidebar */}
-        <aside className="w-[258px] border-r border-gray-200 dark:border-gray-700 p-6 hidden md:block relative min-h-full">
+        <aside
+          className="w-[258px] border-r border-gray-200 dark:border-gray-700 p-6 hidden md:block relative overflow-y-auto scrollbar-hide"
+        >
+        >
           {/* Blurred Background */}
           <div
             className="absolute inset-0 bg-cover bg-center"
